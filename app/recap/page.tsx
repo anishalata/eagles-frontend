@@ -37,7 +37,7 @@ export default function RecapPage() {
   const fetchGameData = async () => {
     try {
       console.log("Fetching game data from backend...")
-      const response = await fetch("http://localhost:8000/recap")
+      const response = await fetch('https://eagles-backend-5rgf.onrender.com/api/game-recap')
       if (!response.ok) {
         throw new Error(`Failed to fetch game data: ${response.status}`)
       }
@@ -55,7 +55,7 @@ export default function RecapPage() {
   const fetchGameSummary = async () => {
     try {
       console.log("Fetching game summary from backend...")
-      const response = await fetch("http://localhost:8000/gpt-summary")
+      const response = await fetch('https://eagles-backend-5rgf.onrender.com/api/game-summary')
       if (!response.ok) {
         throw new Error(`Failed to fetch game summary: ${response.status}`)
       }
@@ -71,7 +71,7 @@ export default function RecapPage() {
   const fetchGameRecapSummary = async (question: string) => {
     try {
       console.log("Sending chat message:", question)
-      const response = await fetch("http://localhost:8000/game-chat", {
+      const response = await fetch('https://eagles-backend-5rgf.onrender.com/api/game-chat', {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
