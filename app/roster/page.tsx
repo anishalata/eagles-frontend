@@ -62,7 +62,7 @@ export default function RosterPage() {
   const fetchRoster = async () => {
     try {
       console.log("Fetching Eagles roster from backend...")
-      const response = await fetch("http://localhost:8000/eagles-roster")
+      const response = await fetch("https://eagles-backend-5rgf.onrender.com/api/eagles-roster")
       if (!response.ok) {
         throw new Error(`Failed to fetch roster: ${response.status}`)
       }

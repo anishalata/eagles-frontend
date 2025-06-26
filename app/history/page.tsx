@@ -38,7 +38,7 @@ export default function HistoryPage() {
   const fetchEaglesHistory = async () => {
     try {
       console.log("Fetching Eagles history from backend...")
-      const response = await fetch("http://localhost:8000/eagles-history")
+      const response = await fetch("https://eagles-backend-5rgf.onrender.com/api/eagles-history")
       if (!response.ok) {
         throw new Error(`Failed to fetch Eagles history: ${response.status}`)
       }
@@ -57,7 +57,7 @@ export default function HistoryPage() {
     setIsLoadingFunFact(true)
     try {
       console.log("Fetching Eagles fun fact from backend...")
-      const response = await fetch("http://localhost:8000/eagles-fun-fact")
+      const response = await fetch("https://eagles-backend-5rgf.onrender.com/api/eagles-fun-fact")
       if (!response.ok) {
         throw new Error(`Failed to fetch fun fact: ${response.status}`)
       }
@@ -79,7 +79,7 @@ export default function HistoryPage() {
 
     for (const legend of legends) {
       try {
-        const response = await fetch(`http://localhost:8000/eagles-legend/${encodeURIComponent(legend)}`)
+        const response = await fetch(`https://eagles-backend-5rgf.onrender.com/api/eagles-legend/${encodeURIComponent(legend)}`)
         if (response.ok) {
           const data = await response.json()
           newLegendsInfo[legend as keyof typeof legendsInfo] = data.legend || ""
@@ -100,7 +100,7 @@ export default function HistoryPage() {
 
     try {
       console.log("Sending history question:", historyQuestion)
-      const response = await fetch("http://localhost:8000/chat", {
+      const response = await fetch("https://eagles-backend-5rgf.onrender.com/api/chat", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
